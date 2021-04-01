@@ -1,0 +1,49 @@
+.form{
+    margin:20px;
+    text-align: left;
+    line-height: 30px;
+}
+.splitScreen {
+    display: flex;
+    flex-direction:row
+}
+.leftPane {
+    width: '50%';
+    flex: 0.5;
+    display: flex;
+    flex-direction:row;
+    padding-right:20px;
+}
+.rightPane {
+    width: '50%';
+    flex: 0.5;
+    display: flex;
+    flex-direction:row;
+    padding-left: 20px;
+}
+.righthalf{
+    flex:0.5;
+}
+.lefthalf{
+    flex:0.5;
+}
+.footer{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+}
+.updates{
+    text-align: left;
+    margin-left: 0px;
+    padding-top:18px;
+    float:left;
+}
+.buttons{
+    text-align: right;
+    margin-right: 0px;
+    padding:20px;
+    float: right;
+}
+.form-group{
+    padding:10px !important;
+}
