@@ -17,6 +17,28 @@ const Panchayat = [
     { value: 'Chennai', label: 'Chennai' }
 ]
 class MyForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            phone: '',
+            name: '',
+            groupname: '',
+            groupaddress: ''
+        }
+        this.submitFunc = this.submitFunc.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+    submitFunc = () => {
+        if (this.state.phone === '' || this.state.name === '' || this.state.groupname === '' || this.state.groupaddress === '') {
+            alert("EMPTY FIELDS IN FORM")
+        }
+    }
+    handleChange(evt) {
+        const value = evt.target.value;
+        this.setState({
+            [evt.target.name]: value
+        });
+    }
     render() {
         return (
             <div>
@@ -33,20 +55,20 @@ class MyForm extends React.Component {
                             <div className="lefthalf">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Mobile Number</label>
-                                    <input type="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="+91 9600621275"></input>
+                                    <input name="phone" onChange={this.handleChange} value={this.state.phone} type="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="+91 9600621275"></input>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Enterprise Group Name</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                                    <input name="groupname" onChange={this.handleChange} value={this.state.groupname} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
                                 </div>
                             </div>
                             <div className="righthalf">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                                    <input name="name" onChange={this.handleChange} value={this.state.name} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
                                 </div>
                                 <label>Enterprise Group Address</label>
-                                <textarea class="form-control" aria-label="With textarea" rows='5' cols='20'></textarea>
+                                <textarea name="groupaddress" onChange={this.handleChange} value={this.state.groupaddress} class="form-control" aria-label="With textarea" rows='5' cols='20'></textarea>
                             </div>
                         </div>
                         <hr></hr>
@@ -68,8 +90,8 @@ class MyForm extends React.Component {
                     <hr className="foot"></hr>
                     <span className="updates"><i class="bi bi-check-circle-fill"></i>All updates saved as drafts</span>
                     <div className="buttons">
-                        <button type="button" class="btn btn-outline-secondary">Previous</button>
-                        <button type="button" class="btn btn-success">Next</button>
+                        <button type="button" class="btn btn-outline-secondary" onClick={this.submitFunc}>Previous</button>
+                        <button type="button" class="btn btn-success" onClick={this.submitFunc}>Next</button>
                     </div>
                 </footer>
             </div>
